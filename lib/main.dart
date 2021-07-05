@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
     return StoreProvider<AppState>(
       store: store,
       child: MaterialApp(
-        home: HomePage(),
+        home: const HomePage(),
         theme: ThemeData.dark(),
       ),
     );
