@@ -15,7 +15,7 @@ class GetMoviesSuccessful {
   final List<Movie> movies;
 
   @override
-  String toString(){
+  String toString() {
     return 'GetMoviesSuccessful{movies: $movies}';
   }
 }

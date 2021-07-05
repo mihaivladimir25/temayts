@@ -15,17 +15,14 @@ class _$MovieSerializer implements StructuredSerializer<Movie> {
   final String wireName = 'Movie';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Movie object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(Serializers serializers, Movie object, {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
       'title',
-      serializers.serialize(object.title,
-          specifiedType: const FullType(String)),
+      serializers.serialize(object.title, specifiedType: const FullType(String)),
       'medium_cover_image',
-      serializers.serialize(object.image,
-          specifiedType: const FullType(String)),
+      serializers.serialize(object.image, specifiedType: const FullType(String)),
     ];
 
     return result;
@@ -43,16 +40,13 @@ class _$MovieSerializer implements StructuredSerializer<Movie> {
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+          result.id = serializers.deserialize(value, specifiedType: const FullType(int)) as int;
           break;
         case 'title':
-          result.title = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.title = serializers.deserialize(value, specifiedType: const FullType(String)) as String;
           break;
         case 'medium_cover_image':
-          result.image = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.image = serializers.deserialize(value, specifiedType: const FullType(String)) as String;
           break;
       }
     }
@@ -69,19 +63,16 @@ class _$Movie extends Movie {
   @override
   final String image;
 
-  factory _$Movie([void Function(MovieBuilder)? updates]) =>
-      (new MovieBuilder()..update(updates)).build();
+  factory _$Movie([void Function(MovieBuilder)? updates]) => (new MovieBuilder()..update(updates)).build();
 
-  _$Movie._({required this.id, required this.title, required this.image})
-      : super._() {
+  _$Movie._({required this.id, required this.title, required this.image}) : super._() {
     BuiltValueNullFieldError.checkNotNull(id, 'Movie', 'id');
     BuiltValueNullFieldError.checkNotNull(title, 'Movie', 'title');
     BuiltValueNullFieldError.checkNotNull(image, 'Movie', 'image');
   }
 
   @override
-  Movie rebuild(void Function(MovieBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  Movie rebuild(void Function(MovieBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
   MovieBuilder toBuilder() => new MovieBuilder()..replace(this);
@@ -89,10 +80,7 @@ class _$Movie extends Movie {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Movie &&
-        id == other.id &&
-        title == other.title &&
-        image == other.image;
+    return other is Movie && id == other.id && title == other.title && image == other.image;
   }
 
   @override
@@ -102,11 +90,7 @@ class _$Movie extends Movie {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('Movie')
-          ..add('id', id)
-          ..add('title', title)
-          ..add('image', image))
-        .toString();
+    return (newBuiltValueToStringHelper('Movie')..add('id', id)..add('title', title)..add('image', image)).toString();
   }
 }
 
@@ -154,10 +138,8 @@ class MovieBuilder implements Builder<Movie, MovieBuilder> {
     final _$result = _$v ??
         new _$Movie._(
             id: BuiltValueNullFieldError.checkNotNull(id, 'Movie', 'id'),
-            title:
-                BuiltValueNullFieldError.checkNotNull(title, 'Movie', 'title'),
-            image:
-                BuiltValueNullFieldError.checkNotNull(image, 'Movie', 'image'));
+            title: BuiltValueNullFieldError.checkNotNull(title, 'Movie', 'title'),
+            image: BuiltValueNullFieldError.checkNotNull(image, 'Movie', 'image'));
     replace(_$result);
     return _$result;
   }
