@@ -22,7 +22,7 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
 
   AppState._();
 
-  BuiltList<Movies> get movies;
+  BuiltList<Movie> get movies;
 
   bool get isLoading;
 

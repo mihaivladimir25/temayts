@@ -1,11 +1,16 @@
-import 'package:built_collection/built_collection.dart';
-import 'package:built_value/serializer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:http/http.dart';
+import 'package:redux/redux.dart';
+import 'package:tema_yts/src/actions/get_movies.dart';
 import 'package:tema_yts/src/middleware/middleware.dart';
 import 'package:tema_yts/src/models/app_state.dart';
+import 'package:tema_yts/src/presentation/home_page.dart';
 import 'package:tema_yts/src/reducer/reducer.dart';
 
-void main(){
+import 'src/data/movies_api.dart';
+
+void main() {
   const String apiUrl = 'https://yts.mx/api/v2';
   final Client client = Client();
   final MoviesApi moviesApi = MoviesApi(apiUrl: apiUrl, client: client);
@@ -17,26 +22,21 @@ void main(){
   );
   store.dispatch(const GetMovies());
 
-  runApp(YtsApp(store: store));
+  runApp(MyApp(store: store));
 }
 
-class MyApp extends StatelessWidget{
-  const YtsApp({Key? key, required this.store}) : super(key: key);
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key, required this.store}) : super(key: key);
 
   final Store<AppState> store;
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return StoreProvider<AppState>(
       store: store,
-      child: const MaterialApp(
+      child: MaterialApp(
         home: HomePage(),
         theme: ThemeData.dark(),
-        routes: <String, WidgetBuilder>{
-          '/details':(BuildContext context) {
-            return const MovieDetails();
-          }
-        },
       ),
     );
   }
