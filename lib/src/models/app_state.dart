@@ -9,7 +9,7 @@ import 'package:tema_yts/src/models/movie.dart';
 part 'app_state.g.dart';
 
 abstract class AppState implements Built<AppState, AppStateBuilder> {
-  factory AppState(){
+  factory AppState() {
     return _$AppState((AppStateBuilder b) {
       b
         ..isLoading = false
@@ -17,8 +17,7 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
     });
   }
 
-  factory AppState.fromJson(dynamic json) =>
-      serializers.deserializeWith(serializer, json) as AppState;
+  factory AppState.fromJson(dynamic json) => serializers.deserializeWith(serializer, json)!;
 
   AppState._();
 
@@ -32,8 +31,7 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
 
   int? get selectedMovie;
 
-  Map<String, dynamic> get json =>
-      serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  Map<String, dynamic> get json => serializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   static Serializer<AppState> get serializer => _$appStateSerializer;
 }
